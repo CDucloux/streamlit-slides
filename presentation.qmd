@@ -48,13 +48,31 @@ Et avant **Streamlit**, qu'est ce qu'il y avait ?
 
 **Objectif** : Simplifier au maximum le développement d'applications *Data*.
 
-- User Interface ?
-- Inputs ?
-- Outputs ?
-- Interactions ?
-- Callbacks ?
+:::: {.fragment .strike fragment-index=6}
 
-Et pourquoi pas juste un script ?
+::: {.fragment fragment-index=1}
+User Interface ?
+:::
+
+::: {.fragment fragment-index=2}
+Inputs ?
+:::
+
+::: {.fragment fragment-index=3}
+Outputs ?
+:::
+
+::: {.fragment fragment-index=4}
+Interactions ?
+:::
+
+::: {.fragment fragment-index=5}
+Callbacks ?
+:::
+
+::::
+
+> Et pourquoi pas juste un script <i class="fa-brands fa-python"></i> ?
 
 
 :::{.notes}
@@ -78,7 +96,7 @@ Et c'est là que *Streamlit* arrive avec une idée toute simple.
 ## On passe à l'installation ?
 
 ::: {.nonincremental}
-1. Lancement d'un terminal
+1. Lancement d'un terminal : <i class="fa-solid fa-terminal"></i>
 2. Et ensuite on installe via `pip` avec la commande
 :::
 
@@ -430,7 +448,7 @@ Pour plus de contrôle sur les visualisations on peut utiliser plotly, altair ou
 
 Au coeur de tous ces composants permettant de créer l'interface utilisateur, il y a une classe : le `DeltaGenerator`.
 
-- Système basé sur *protobuf*, crée par **GOOGLE**
+- Système basé sur <i class="fa-brands fa-google"></i> *protobuf*, crée par **GOOGLE**
 :::
 
 ::: {.notes}
@@ -458,3 +476,10 @@ Par exemple les messages d'alerte, la sidebar, ou même les tabs, ce sont tous d
 ## FIN
 
 ![](imgs/meme_end.jpg){fig-align="center" width="75%"}
+
+
+:::{.notes}
+
+Streamlit devient de plus en plus omniprésent dans le domaine de la data et vous aurez peut-être à l'utiliser, et en tout cas nous on vous le conseille fortement, et surtout on espère que ça vous a plu et que ça vous sera utile.
+
+:::
