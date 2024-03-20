@@ -21,7 +21,6 @@ format:
         logo: https://corentinducloux.fr/dossier_img/mecen_transparent.png
         include-in-header: 
             - text: | 
-                <link href='https://fonts.googleapis.com/css?family=Fira Code' rel='stylesheet'>
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 ---
 
@@ -36,6 +35,7 @@ Et avant **Streamlit**, qu'est ce qu'il y avait ?
 - **Plotly Dash** $\Rightarrow$ Prise en main plus simple que **Flask**, concept assez similaire à **Shiny** avec séparation des composants `UI` et `server`.
 
 :::{.notes}
+*Corentin*
 
 - Flask $\Rightarrow$ Super Framework pour faire une appli web scalable mais si vous venez d'un background Data c'est vraiment très très galère, il faut savoir ce qu'on fait.
 
@@ -76,6 +76,7 @@ Callbacks ?
 
 
 :::{.notes}
+*Corentin*
 
 **A dire après l'objectif : **
 
@@ -85,7 +86,7 @@ Et puis...c'est tout.
 
 En bref il restait souvent dans son notebook, le modèle était assez peu exploitable, et surtout, il était interprétable uniquement par les équipes Data qui l'avaient fait. Et les Data Scientists ils avaient pas particulièrement envie de s'embêter à apprendre Dash ou même Flask. **Niveau communication des résultats on a vu mieux.**
 
-Et c'est là que *Streamlit* arrive avec une idée toute simple.
+Et c'est là que *Streamlit* arrive avec une idée toute simple : au lieu de séparer tous les composants logiciels de l'interface utilisateur, on fait juste un script.
 
 :::
 
@@ -106,6 +107,12 @@ python -m pip install streamlit
 
 :::
 
+:::{.notes}
+*Aybuké*
+
+Est-ce que tt le monde a réussi à installer du coup ?
+:::
+
 ## Prise en main
 
 $\Rightarrow$ Lançons la démo pour voir de quoi **Streamlit** est capable.
@@ -117,6 +124,12 @@ $\Rightarrow$ Lançons la démo pour voir de quoi **Streamlit** est capable.
 ```python
 python -m streamlit hello
 ```
+:::
+
+:::{.notes}
+*Aybuké*
+
+Vous pouvez regarder en détail la démo mais on va pas vraiment se concentrer dessus étant donné qu'on va construire une petite app nous-même, on trouve que c'est quand même plus intéressant.
 :::
 
 ## Un premier jet ! {.smaller}
@@ -152,6 +165,9 @@ st.divider()
 python -m streamlit run app.py
 ```
 
+:::{.notes}
+*Aybuké*
+:::
 
 ## Ce qu'on a vu jusqu'ici
 
@@ -164,6 +180,10 @@ python -m streamlit run app.py
 - `st.code()` pour inclure du code non-exécutable provenant de différents langages : `python`, `SQL`, `CSS`, etc.
 
 - `st.divider()` pour tracer une ligne horizontale
+
+:::{.notes}
+*Aybuké*
+:::
 
 ## Intégration de LaTeX
 
@@ -186,6 +206,12 @@ st.caption(
     """
 )
 ```
+
+:::{.notes}
+*Corentin*
+
+Ca c'est quelque chose qui va certainement plaire à madame Scholler.
+:::
 
 ## Présentation de widgets
 
@@ -211,6 +237,7 @@ if bouton:
 ```
 
 :::{.notes}
+*Guillaume*
 
 Notez qu'une fois que vous changez l'input de la `selectbox` dans l'application, l'ensemble du script est ré-éxécuté, et donc, le bouton est re-caché par défaut. 
 
@@ -228,10 +255,11 @@ Ce **rerun total** qui est la signature de streamlit peut faciliter le développ
 - `st.popover()` $\Rightarrow$ Popover
 
 :::{.notes}
+*Hassan*
 
 De nombreuses options de layout sont disponibles pour modifier l'application.
 
-On peut ajouter des colonnes, créer des boites flexbox avec les container, des tabs, une sidebar, etc.
+On peut ajouter des colonnes, créer des boites flexbox avec les containers, des tabs, une sidebar, etc.
 
 :::
 
@@ -244,6 +272,10 @@ On peut ajouter des colonnes, créer des boites flexbox avec les container, des 
 ![](imgs/meme_columns.jpg){fig-align="center" width="35%"}
 
 :::{.notes}
+*Hassan*
+
+La je vais d'abord vous présenter la création de colonnes avec le futur président des Etats-Unis.
+
 Il y a plusieurs moyens de gérer la taille des colonnes, par défaut si on ne met qu'un chiffre qui indique le nombre de colonnes ça va diviser la page en 2,3,4, etc.
 
 Mais on peut aussi passer une liste avec des floats du type `[0.1, 0.4, 0.4, 0.1]`
@@ -270,6 +302,7 @@ with st.sidebar:
 ```
 
 :::{.notes}
+*Aybuké*
 
 La notation with permet de dire avec quel objet du layout on travaille. La, on voit qu'on travaille avec notre sidebar et qu'on lui ajoute des inputs.
 
@@ -296,6 +329,12 @@ if prenom:
             )
 ```
 
+:::{.notes}
+*Guillaume*
+
+On va en plus vous faire crouler sous les ballons et la neige maintenant.
+:::
+
 ## Des messages de statut {.smaller}
 
 - ℹ️ `st.info()`
@@ -318,6 +357,12 @@ with st.sidebar:
         st.success("Message de réussite.", icon="✅")
 ```
 
+:::{.notes}
+*Hassan*
+
+Sur Streamlit, il existe aussi des conteneurs colorés spéciaux qui sont adaptés pour l'affichage d'erreurs, d'infos, d'avertissements. On va les rergarder un petit peu ensemble.
+:::
+
 ## Et avec des vraies données ? (I)
 
 > On a vu tout un tas d'éléments d'`UI`, mais on a pas vraiment interragi avec des données dignes de ce nom.
@@ -325,6 +370,12 @@ with st.sidebar:
 ![](imgs/meme_polars.jpg){fig-align="center" width="75%"}
 
 $\Rightarrow$ **Morale de l'histoire** : Installe `polars`
+
+:::{.notes}
+*Guillaume*
+
+Quand on pense manipulation de données en python, on pense `pandas`, mais il est temps de passer à la vitesse supérieure et d'avoir un truc vraiment rapide.
+:::
 
 ## Et avec des vraies données ? (II)
 
@@ -346,9 +397,17 @@ df_covid = pl.read_csv(
 - En plus, chaque action dans l'appli relance l'import...
 :::
 
+:::{.notes}
+*Guillaume*
+:::
+
 ## On est pas rendus...
 
 ![](imgs/meme_skeleton.jpeg){fig-align="center" width="35%"}
+
+:::{.notes}
+*Guillaume*
+:::
 
 ## Solution (I)
 
@@ -359,6 +418,8 @@ df_covid = pl.read_csv(
 `@st.cache_data` et `@st.cache_resource`
 
 ::: {.notes}
+*Corentin*
+
 Pour le premier décorateur, imaginez que vous ayez un dataframe de 2,5 millions lignes, ça va devenir assez encombrant que chaque interaction relance entièrement l'appli, et donc l'import des données peut se faire en une fois, et ensuite les données vont rester dans le cache du navigateur.
 :::
 
@@ -387,6 +448,10 @@ On attend une seule fois pour l'import des données, ce qui est beaucoup plus sa
 
 :::
 
+:::{.notes}
+*Corentin*
+:::
+
 ## Affichage d'un tableau
 
 > On a maintenant envie d'afficher nos données sous forme de tableau.
@@ -406,6 +471,8 @@ with tab_2:
 $\Rightarrow$ Grande flexibilité dans l'affichage.
 
 :::{.notes}
+*Hassan*
+
 L'option hide_index permet de cacher la colonne d'indice qui est associée au dataframe.
 
 La seconde option permet de forcer le tableau à prendre la taille complète du conteneur. La dernière option est probablement la plus intéressante parce qu'elle permet de passer un schéma de configuration de colonnes pour les personnaliser.
@@ -436,6 +503,8 @@ with tab_3:
 - *etc.*
 
 :::{.notes}
+*Aybuké*
+
 Pour plus de contrôle sur les visualisations on peut utiliser plotly, altair ou matplotlib avec d'autres commandes.
 :::
 
@@ -452,6 +521,7 @@ Au coeur de tous ces composants permettant de créer l'interface utilisateur, il
 :::
 
 ::: {.notes}
+*Corentin*
 
 Et comme évidemment les devs de chez Streamlit ils ont pas réinventé la roue ils ont utilisé un système de sérialisation et désérialisation de données qui a été crée à la base par **Google**.
 
@@ -463,7 +533,13 @@ Par exemple les messages d'alerte, la sidebar, ou même les tabs, ce sont tous d
 
 ## Pour aller + loin
 
+**Secrets management**
+
 `st.secrets`
+
+::: {.notes}
+*Hassan*
+:::
 
 ## Exemples d'appli complètes
 
@@ -473,13 +549,23 @@ Par exemple les messages d'alerte, la sidebar, ou même les tabs, ce sont tous d
 
 **API Reference** : <https://docs.streamlit.io/library/api-reference>
 
+::: {.notes}
+*Guillaume*
+:::
+
 ## FIN
 
 ![](imgs/meme_end.jpg){fig-align="center" width="75%"}
 
 
 :::{.notes}
+*Hassan*
 
 Streamlit devient de plus en plus omniprésent dans le domaine de la data et vous aurez peut-être à l'utiliser, et en tout cas nous on vous le conseille fortement, et surtout on espère que ça vous a plu et que ça vous sera utile.
 
 :::
+
+## (Un dernier meme pour la route)
+
+![](imgs/meme_cc.jpg){fig-align="center" width="40%"}
+

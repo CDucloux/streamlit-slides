@@ -8,7 +8,7 @@
 <link href="presentation_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="presentation_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="presentation_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.450">
+  <meta name="generator" content="quarto-1.4.551">
 
   <meta name="author" content="Buk, Guig's, le H et le Coc's">
   <title>💻 Streamlit</title>
@@ -31,7 +31,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -221,7 +221,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -384,7 +385,6 @@
       margin-right: 0; 
     }
   </style>
-  <link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body class="quarto-light">
@@ -416,6 +416,7 @@
 <li class="fragment"><p><strong>Plotly Dash</strong> <span class="math inline">\(\Rightarrow\)</span> Prise en main plus simple que <strong>Flask</strong>, concept assez similaire à <strong>Shiny</strong> avec séparation des composants <code>UI</code> et <code>server</code>.</p></li>
 </ul>
 <aside class="notes">
+<p><em>Corentin</em></p>
 <ul>
 <li><p>Flask <span class="math inline">\(\Rightarrow\)</span> Super Framework pour faire une appli web scalable mais si vous venez d’un background Data c’est vraiment très très galère, il faut savoir ce qu’on fait.</p></li>
 <li><p>Plotly Dash <span class="math inline">\(\Rightarrow\)</span> Configuration des inputs, outputs, callbacks.</p></li>
@@ -456,11 +457,12 @@
 <p>Et pourquoi pas juste un script <i class="fa-brands fa-python"></i> ?</p>
 </blockquote>
 <aside class="notes">
+<p><em>Corentin</em></p>
 <p><strong>A dire après l’objectif : </strong></p>
 <p>A l’époque un Data Scientist il faisait son petit Boosting en utilisant sklearn, il faisait une cross-validation, il regardait ses métriques et puis si c’était bien il passait à un autre projet.</p>
 <p>Et puis…c’est tout.</p>
 <p>En bref il restait souvent dans son notebook, le modèle était assez peu exploitable, et surtout, il était interprétable uniquement par les équipes Data qui l’avaient fait. Et les Data Scientists ils avaient pas particulièrement envie de s’embêter à apprendre Dash ou même Flask. <strong>Niveau communication des résultats on a vu mieux.</strong></p>
-<p>Et c’est là que <em>Streamlit</em> arrive avec une idée toute simple.</p>
+<p>Et c’est là que <em>Streamlit</em> arrive avec une idée toute simple : au lieu de séparer tous les composants logiciels de l’interface utilisateur, on fait juste un script.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -490,10 +492,24 @@
 <li>Et ensuite on installe via <code>pip</code> avec la commande</li>
 </ol>
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1"></a>python <span class="op">-</span>m pip install streamlit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb1-1"><a href=""></a>python <span class="op">-</span>m pip install streamlit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
+<aside class="notes">
+<p><em>Aybuké</em></p>
+<p>Est-ce que tt le monde a réussi à installer du coup ?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="prise-en-main" class="slide level2">
 <h2>Prise en main</h2>
@@ -507,10 +523,24 @@
 <p><strong>👋 Hello Streamlit</strong></p>
 </div>
 <div class="callout-content">
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>python <span class="op">-</span>m streamlit hello</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a>python <span class="op">-</span>m streamlit hello</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
+<aside class="notes">
+<p><em>Aybuké</em></p>
+<p>Vous pouvez regarder en détail la démo mais on va pas vraiment se concentrer dessus étant donné qu’on va construire une petite app nous-même, on trouve que c’est quand même plus intéressant.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="un-premier-jet" class="slide level2 smaller">
 <h2>Un premier jet !</h2>
@@ -518,33 +548,46 @@
 <div class="code-with-filename-file">
 <pre><strong>app.py</strong></pre>
 </div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">import</span> streamlit <span class="im">as</span> st</span>
-<span id="cb3-2"><a href="#cb3-2"></a></span>
-<span id="cb3-3"><a href="#cb3-3"></a>st.set_page_config(page_icon<span class="op">=</span><span class="st">"🐍"</span>, page_title<span class="op">=</span><span class="st">"PyApp"</span>)</span>
-<span id="cb3-4"><a href="#cb3-4"></a>st.title(<span class="st">"😎 Ma première app super stylée"</span>)</span>
-<span id="cb3-5"><a href="#cb3-5"></a></span>
-<span id="cb3-6"><a href="#cb3-6"></a>st.markdown(<span class="st">"Du *markdown* dans l'app ? **Rien de plus simple !**"</span>)</span>
-<span id="cb3-7"><a href="#cb3-7"></a>st.markdown(<span class="st">"- Lien vers [`streamlit`](https://streamlit.io/)"</span>)</span>
-<span id="cb3-8"><a href="#cb3-8"></a>st.markdown(</span>
-<span id="cb3-9"><a href="#cb3-9"></a>    <span class="st">"""</span></span>
-<span id="cb3-10"><a href="#cb3-10"></a><span class="st">    &gt; Des couleurs ? :orange[orange], :red[rouge], :green[vert]</span></span>
-<span id="cb3-11"><a href="#cb3-11"></a><span class="st">    """</span></span>
-<span id="cb3-12"><a href="#cb3-12"></a>)</span>
-<span id="cb3-13"><a href="#cb3-13"></a></span>
-<span id="cb3-14"><a href="#cb3-14"></a>st.code(</span>
-<span id="cb3-15"><a href="#cb3-15"></a>    <span class="st">"""</span></span>
-<span id="cb3-16"><a href="#cb3-16"></a><span class="st">    [[i for i in range(5)] for j in range(2)] </span></span>
-<span id="cb3-17"><a href="#cb3-17"></a><span class="st">    # Du code non-exécutable</span></span>
-<span id="cb3-18"><a href="#cb3-18"></a><span class="st">    """</span>,</span>
-<span id="cb3-19"><a href="#cb3-19"></a>    language<span class="op">=</span><span class="st">"python"</span></span>
-<span id="cb3-20"><a href="#cb3-20"></a>)</span>
-<span id="cb3-21"><a href="#cb3-21"></a></span>
-<span id="cb3-22"><a href="#cb3-22"></a>st.divider()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3" data-filename="app.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="im">import</span> streamlit <span class="im">as</span> st</span>
+<span id="cb3-2"><a href=""></a></span>
+<span id="cb3-3"><a href=""></a>st.set_page_config(page_icon<span class="op">=</span><span class="st">"🐍"</span>, page_title<span class="op">=</span><span class="st">"PyApp"</span>)</span>
+<span id="cb3-4"><a href=""></a>st.title(<span class="st">"😎 Ma première app super stylée"</span>)</span>
+<span id="cb3-5"><a href=""></a></span>
+<span id="cb3-6"><a href=""></a>st.markdown(<span class="st">"Du *markdown* dans l'app ? **Rien de plus simple !**"</span>)</span>
+<span id="cb3-7"><a href=""></a>st.markdown(<span class="st">"- Lien vers [`streamlit`](https://streamlit.io/)"</span>)</span>
+<span id="cb3-8"><a href=""></a>st.markdown(</span>
+<span id="cb3-9"><a href=""></a>    <span class="st">"""</span></span>
+<span id="cb3-10"><a href=""></a><span class="st">    &gt; Des couleurs ? :orange[orange], :red[rouge], :green[vert]</span></span>
+<span id="cb3-11"><a href=""></a><span class="st">    """</span></span>
+<span id="cb3-12"><a href=""></a>)</span>
+<span id="cb3-13"><a href=""></a></span>
+<span id="cb3-14"><a href=""></a>st.code(</span>
+<span id="cb3-15"><a href=""></a>    <span class="st">"""</span></span>
+<span id="cb3-16"><a href=""></a><span class="st">    [[i for i in range(5)] for j in range(2)] </span></span>
+<span id="cb3-17"><a href=""></a><span class="st">    # Du code non-exécutable</span></span>
+<span id="cb3-18"><a href=""></a><span class="st">    """</span>,</span>
+<span id="cb3-19"><a href=""></a>    language<span class="op">=</span><span class="st">"python"</span></span>
+<span id="cb3-20"><a href=""></a>)</span>
+<span id="cb3-21"><a href=""></a></span>
+<span id="cb3-22"><a href=""></a>st.divider()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote>
 <p>🚀 et pour lancer l’appli :</p>
 </blockquote>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb4-1"><a href="#cb4-1"></a>python <span class="op">-</span>m streamlit run app<span class="op">.</span><span class="fu">py</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb4-1"><a href=""></a>python <span class="op">-</span>m streamlit run app<span class="op">.</span><span class="fu">py</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<aside class="notes">
+<p><em>Aybuké</em></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="ce-quon-a-vu-jusquici" class="slide level2">
 <h2>Ce qu’on a vu jusqu’ici</h2>
@@ -555,6 +598,19 @@
 <li class="fragment"><p><code>st.code()</code> pour inclure du code non-exécutable provenant de différents langages : <code>python</code>, <code>SQL</code>, <code>CSS</code>, etc.</p></li>
 <li class="fragment"><p><code>st.divider()</code> pour tracer une ligne horizontale</p></li>
 </ul>
+<aside class="notes">
+<p><em>Aybuké</em></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="intégration-de-latex" class="slide level2">
 <h2>Intégration de LaTeX</h2>
@@ -563,15 +619,29 @@
 e^{i \pi} + 1 = 0
 \]</span></p>
 <p>Ajoutons ces quelques lignes de code.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>st.header(<span class="st">"Ajoutons du LaTeX"</span>)</span>
-<span id="cb5-2"><a href="#cb5-2"></a>st.subheader(<span class="st">"Identité d'*Euler*"</span>, divider<span class="op">=</span><span class="st">"blue"</span>)</span>
-<span id="cb5-3"><a href="#cb5-3"></a>st.latex(<span class="st">"e^{i \pi} + 1 = 0"</span>)</span>
-<span id="cb5-4"><a href="#cb5-4"></a>st.caption(</span>
-<span id="cb5-5"><a href="#cb5-5"></a>    <span class="st">"""</span></span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="st">    L'identité d'*Euler* est souvent citée comme</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="st">    un exemple de beauté mathématique.</span></span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="st">    """</span></span>
-<span id="cb5-9"><a href="#cb5-9"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>st.header(<span class="st">"Ajoutons du LaTeX"</span>)</span>
+<span id="cb5-2"><a href=""></a>st.subheader(<span class="st">"Identité d'*Euler*"</span>, divider<span class="op">=</span><span class="st">"blue"</span>)</span>
+<span id="cb5-3"><a href=""></a>st.latex(<span class="st">"e^{i \pi} + 1 = 0"</span>)</span>
+<span id="cb5-4"><a href=""></a>st.caption(</span>
+<span id="cb5-5"><a href=""></a>    <span class="st">"""</span></span>
+<span id="cb5-6"><a href=""></a><span class="st">    L'identité d'*Euler* est souvent citée comme</span></span>
+<span id="cb5-7"><a href=""></a><span class="st">    un exemple de beauté mathématique.</span></span>
+<span id="cb5-8"><a href=""></a><span class="st">    """</span></span>
+<span id="cb5-9"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<aside class="notes">
+<p><em>Corentin</em></p>
+<p>Ca c’est quelque chose qui va certainement plaire à madame Scholler.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="présentation-de-widgets" class="slide level2">
 <h2>Présentation de widgets</h2>
@@ -584,18 +654,19 @@ e^{i \pi} + 1 = 0
 <li><code>st.button()</code></li>
 </ul>
 </div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>fruit <span class="op">=</span> st.selectbox(</span>
-<span id="cb6-2"><a href="#cb6-2"></a>    <span class="st">"Fruit"</span>,</span>
-<span id="cb6-3"><a href="#cb6-3"></a>    (<span class="st">"🍓 Fraise"</span>, <span class="st">"🍊 Orange"</span>, <span class="st">"🥭 Mangue"</span>, <span class="st">"🍌 Banane"</span>, <span class="st">"🍏 Pomme"</span>),</span>
-<span id="cb6-4"><a href="#cb6-4"></a>    index <span class="op">=</span> <span class="va">None</span>,</span>
-<span id="cb6-5"><a href="#cb6-5"></a>    placeholder <span class="op">=</span> <span class="st">"Sélectionner un fruit"</span></span>
-<span id="cb6-6"><a href="#cb6-6"></a>)</span>
-<span id="cb6-7"><a href="#cb6-7"></a></span>
-<span id="cb6-8"><a href="#cb6-8"></a>bouton <span class="op">=</span> st.button(<span class="st">"Voir les détails du fruit sélectionné"</span>)</span>
-<span id="cb6-9"><a href="#cb6-9"></a></span>
-<span id="cb6-10"><a href="#cb6-10"></a><span class="cf">if</span> bouton:</span>
-<span id="cb6-11"><a href="#cb6-11"></a>    st.write(<span class="ss">f"T'as la dalle ! Tu veux manger une **</span><span class="sc">{</span>fruit<span class="sc">}</span><span class="ss">**"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a>fruit <span class="op">=</span> st.selectbox(</span>
+<span id="cb6-2"><a href=""></a>    <span class="st">"Fruit"</span>,</span>
+<span id="cb6-3"><a href=""></a>    (<span class="st">"🍓 Fraise"</span>, <span class="st">"🍊 Orange"</span>, <span class="st">"🥭 Mangue"</span>, <span class="st">"🍌 Banane"</span>, <span class="st">"🍏 Pomme"</span>),</span>
+<span id="cb6-4"><a href=""></a>    index <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb6-5"><a href=""></a>    placeholder <span class="op">=</span> <span class="st">"Sélectionner un fruit"</span></span>
+<span id="cb6-6"><a href=""></a>)</span>
+<span id="cb6-7"><a href=""></a></span>
+<span id="cb6-8"><a href=""></a>bouton <span class="op">=</span> st.button(<span class="st">"Voir les détails du fruit sélectionné"</span>)</span>
+<span id="cb6-9"><a href=""></a></span>
+<span id="cb6-10"><a href=""></a><span class="cf">if</span> bouton:</span>
+<span id="cb6-11"><a href=""></a>    st.write(<span class="ss">f"T'as la dalle ! Tu veux manger une **</span><span class="sc">{</span>fruit<span class="sc">}</span><span class="ss">**"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <aside class="notes">
+<p><em>Guillaume</em></p>
 <p>Notez qu’une fois que vous changez l’input de la <code>selectbox</code> dans l’application, l’ensemble du script est ré-éxécuté, et donc, le bouton est re-caché par défaut.</p>
 <p>Ce <strong>rerun total</strong> qui est la signature de streamlit peut faciliter le développement de certaines applis mais peut parfois être assez contraignant.</p>
 <style type="text/css">
@@ -621,8 +692,9 @@ e^{i \pi} + 1 = 0
 <li class="fragment"><code>st.popover()</code> <span class="math inline">\(\Rightarrow\)</span> Popover</li>
 </ul>
 <aside class="notes">
+<p><em>Hassan</em></p>
 <p>De nombreuses options de layout sont disponibles pour modifier l’application.</p>
-<p>On peut ajouter des colonnes, créer des boites flexbox avec les container, des tabs, une sidebar, etc.</p>
+<p>On peut ajouter des colonnes, créer des boites flexbox avec les containers, des tabs, une sidebar, etc.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -640,7 +712,9 @@ e^{i \pi} + 1 = 0
 <p><code>colonne_1, colonne_2 = st.columns(2)</code></p>
 <p><strong>Explication visuelle par Donald J. Trump</strong></p>
 
-<img data-src="imgs/meme_columns.jpg" style="width:35.0%" class="r-stretch quarto-figure-center"><aside class="notes">
+<img data-src="imgs/meme_columns.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:35.0%"><aside class="notes">
+<p><em>Hassan</em></p>
+<p>La je vais d’abord vous présenter la création de colonnes avec le futur président des Etats-Unis.</p>
 <p>Il y a plusieurs moyens de gérer la taille des colonnes, par défaut si on ne met qu’un chiffre qui indique le nombre de colonnes ça va diviser la page en 2,3,4, etc.</p>
 <p>Mais on peut aussi passer une liste avec des floats du type <code>[0.1, 0.4, 0.4, 0.1]</code></p>
 <style type="text/css">
@@ -660,20 +734,21 @@ e^{i \pi} + 1 = 0
 <blockquote>
 <p>On va changer notre interface utilisateur pour ajouter une <strong>Sidebar</strong> et regrouper nos widgets.</p>
 </blockquote>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="cf">with</span> st.sidebar:</span>
-<span id="cb7-2"><a href="#cb7-2"></a>    prenom <span class="op">=</span> st.text_input(<span class="st">"🤠 Ecris ton prénom *cow-boy* !"</span>)</span>
-<span id="cb7-3"><a href="#cb7-3"></a>    reussite <span class="op">=</span> st.checkbox(<span class="st">"Tu penses avoir ton année ?"</span>)</span>
-<span id="cb7-4"><a href="#cb7-4"></a>    note_pf <span class="op">=</span> st.number_input(</span>
-<span id="cb7-5"><a href="#cb7-5"></a>        <span class="st">"Ta note en Concurrence et Innovation"</span>,</span>
-<span id="cb7-6"><a href="#cb7-6"></a>        min_value<span class="op">=</span><span class="dv">0</span>,</span>
-<span id="cb7-7"><a href="#cb7-7"></a>        max_value<span class="op">=</span><span class="dv">5</span>,</span>
-<span id="cb7-8"><a href="#cb7-8"></a>        step<span class="op">=</span><span class="dv">1</span></span>
-<span id="cb7-9"><a href="#cb7-9"></a>    )</span>
-<span id="cb7-10"><a href="#cb7-10"></a>    epanouissement <span class="op">=</span> st.select_slider(</span>
-<span id="cb7-11"><a href="#cb7-11"></a>        <span class="st">"Ton épanouissement en master"</span>,</span>
-<span id="cb7-12"><a href="#cb7-12"></a>        <span class="bu">range</span>(<span class="dv">11</span>)</span>
-<span id="cb7-13"><a href="#cb7-13"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a><span class="cf">with</span> st.sidebar:</span>
+<span id="cb7-2"><a href=""></a>    prenom <span class="op">=</span> st.text_input(<span class="st">"🤠 Ecris ton prénom *cow-boy* !"</span>)</span>
+<span id="cb7-3"><a href=""></a>    reussite <span class="op">=</span> st.checkbox(<span class="st">"Tu penses avoir ton année ?"</span>)</span>
+<span id="cb7-4"><a href=""></a>    note_pf <span class="op">=</span> st.number_input(</span>
+<span id="cb7-5"><a href=""></a>        <span class="st">"Ta note en Concurrence et Innovation"</span>,</span>
+<span id="cb7-6"><a href=""></a>        min_value<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb7-7"><a href=""></a>        max_value<span class="op">=</span><span class="dv">5</span>,</span>
+<span id="cb7-8"><a href=""></a>        step<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb7-9"><a href=""></a>    )</span>
+<span id="cb7-10"><a href=""></a>    epanouissement <span class="op">=</span> st.select_slider(</span>
+<span id="cb7-11"><a href=""></a>        <span class="st">"Ton épanouissement en master"</span>,</span>
+<span id="cb7-12"><a href=""></a>        <span class="bu">range</span>(<span class="dv">11</span>)</span>
+<span id="cb7-13"><a href=""></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <aside class="notes">
+<p><em>Aybuké</em></p>
 <p>La notation with permet de dire avec quel objet du layout on travaille. La, on voit qu’on travaille avec notre sidebar et qu’on lui ajoute des inputs.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -692,20 +767,34 @@ e^{i \pi} + 1 = 0
 <blockquote>
 <p>On va ajouter quelques onglets <strong>(Tabs)</strong> à notre application pour diversifier l’interface.</p>
 </blockquote>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>tab_1, tab_2, tab_3 <span class="op">=</span> st.tabs(</span>
-<span id="cb8-2"><a href="#cb8-2"></a>    [<span class="st">"🔎 Infos sur l'année"</span>, <span class="st">"📄 DataFrame"</span>, <span class="st">"📊 Graphiques"</span>]</span>
-<span id="cb8-3"><a href="#cb8-3"></a>)</span>
-<span id="cb8-4"><a href="#cb8-4"></a></span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="cf">if</span> prenom:</span>
-<span id="cb8-6"><a href="#cb8-6"></a>    <span class="cf">with</span> tab_1:</span>
-<span id="cb8-7"><a href="#cb8-7"></a>        <span class="cf">if</span> reussite:</span>
-<span id="cb8-8"><a href="#cb8-8"></a>            st.balloons()</span>
-<span id="cb8-9"><a href="#cb8-9"></a>            st.write(<span class="ss">f"Félicitations pour ton année *</span><span class="sc">{</span>prenom<span class="sc">}</span><span class="ss">* ! 🎈"</span>)</span>
-<span id="cb8-10"><a href="#cb8-10"></a>        <span class="cf">else</span>:</span>
-<span id="cb8-11"><a href="#cb8-11"></a>            st.snow()</span>
-<span id="cb8-12"><a href="#cb8-12"></a>            st.write(</span>
-<span id="cb8-13"><a href="#cb8-13"></a>                <span class="ss">f"**Aie Aie Aie**... 🥶 va falloir taffer *</span><span class="sc">{</span>prenom<span class="sc">}</span><span class="ss">*"</span></span>
-<span id="cb8-14"><a href="#cb8-14"></a>            )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a>tab_1, tab_2, tab_3 <span class="op">=</span> st.tabs(</span>
+<span id="cb8-2"><a href=""></a>    [<span class="st">"🔎 Infos sur l'année"</span>, <span class="st">"📄 DataFrame"</span>, <span class="st">"📊 Graphiques"</span>]</span>
+<span id="cb8-3"><a href=""></a>)</span>
+<span id="cb8-4"><a href=""></a></span>
+<span id="cb8-5"><a href=""></a><span class="cf">if</span> prenom:</span>
+<span id="cb8-6"><a href=""></a>    <span class="cf">with</span> tab_1:</span>
+<span id="cb8-7"><a href=""></a>        <span class="cf">if</span> reussite:</span>
+<span id="cb8-8"><a href=""></a>            st.balloons()</span>
+<span id="cb8-9"><a href=""></a>            st.write(<span class="ss">f"Félicitations pour ton année *</span><span class="sc">{</span>prenom<span class="sc">}</span><span class="ss">* ! 🎈"</span>)</span>
+<span id="cb8-10"><a href=""></a>        <span class="cf">else</span>:</span>
+<span id="cb8-11"><a href=""></a>            st.snow()</span>
+<span id="cb8-12"><a href=""></a>            st.write(</span>
+<span id="cb8-13"><a href=""></a>                <span class="ss">f"**Aie Aie Aie**... 🥶 va falloir taffer *</span><span class="sc">{</span>prenom<span class="sc">}</span><span class="ss">*"</span></span>
+<span id="cb8-14"><a href=""></a>            )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<aside class="notes">
+<p><em>Guillaume</em></p>
+<p>On va en plus vous faire crouler sous les ballons et la neige maintenant.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="des-messages-de-statut" class="slide level2 smaller">
 <h2>Des messages de statut</h2>
@@ -716,18 +805,32 @@ e^{i \pi} + 1 = 0
 <li class="fragment">⚠️ <code>st.warning()</code></li>
 <li class="fragment">✅ <code>st.success()</code></li>
 </ul>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="cf">with</span> st.sidebar:</span>
-<span id="cb9-2"><a href="#cb9-2"></a>    <span class="cf">with</span> st.expander(<span class="st">"On regarde quelques messages ?"</span>):</span>
-<span id="cb9-3"><a href="#cb9-3"></a>        st.info(</span>
-<span id="cb9-4"><a href="#cb9-4"></a>            <span class="ss">f"Ton épanouissement en master : </span><span class="sc">{</span>epanouissement<span class="sc">}</span><span class="ss">/10"</span>,</span>
-<span id="cb9-5"><a href="#cb9-5"></a>            icon<span class="op">=</span><span class="st">"👨‍🏫"</span></span>
-<span id="cb9-6"><a href="#cb9-6"></a>        )</span>
-<span id="cb9-7"><a href="#cb9-7"></a>        st.error(</span>
-<span id="cb9-8"><a href="#cb9-8"></a>            <span class="ss">f"Ta note en Concurrence et Innovation : </span><span class="sc">{</span>note_pf<span class="sc">}</span><span class="ss">"</span>,</span>
-<span id="cb9-9"><a href="#cb9-9"></a>            icon<span class="op">=</span><span class="st">"👀"</span></span>
-<span id="cb9-10"><a href="#cb9-10"></a>        )</span>
-<span id="cb9-11"><a href="#cb9-11"></a>        st.warning(<span class="st">"Ceci est un avertissement générique"</span>, icon<span class="op">=</span><span class="st">"⚠"</span>)</span>
-<span id="cb9-12"><a href="#cb9-12"></a>        st.success(<span class="st">"Message de réussite."</span>, icon<span class="op">=</span><span class="st">"✅"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="cf">with</span> st.sidebar:</span>
+<span id="cb9-2"><a href=""></a>    <span class="cf">with</span> st.expander(<span class="st">"On regarde quelques messages ?"</span>):</span>
+<span id="cb9-3"><a href=""></a>        st.info(</span>
+<span id="cb9-4"><a href=""></a>            <span class="ss">f"Ton épanouissement en master : </span><span class="sc">{</span>epanouissement<span class="sc">}</span><span class="ss">/10"</span>,</span>
+<span id="cb9-5"><a href=""></a>            icon<span class="op">=</span><span class="st">"👨‍🏫"</span></span>
+<span id="cb9-6"><a href=""></a>        )</span>
+<span id="cb9-7"><a href=""></a>        st.error(</span>
+<span id="cb9-8"><a href=""></a>            <span class="ss">f"Ta note en Concurrence et Innovation : </span><span class="sc">{</span>note_pf<span class="sc">}</span><span class="ss">"</span>,</span>
+<span id="cb9-9"><a href=""></a>            icon<span class="op">=</span><span class="st">"👀"</span></span>
+<span id="cb9-10"><a href=""></a>        )</span>
+<span id="cb9-11"><a href=""></a>        st.warning(<span class="st">"Ceci est un avertissement générique"</span>, icon<span class="op">=</span><span class="st">"⚠"</span>)</span>
+<span id="cb9-12"><a href=""></a>        st.success(<span class="st">"Message de réussite."</span>, icon<span class="op">=</span><span class="st">"✅"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<aside class="notes">
+<p><em>Hassan</em></p>
+<p>Sur Streamlit, il existe aussi des conteneurs colorés spéciaux qui sont adaptés pour l’affichage d’erreurs, d’infos, d’avertissements. On va les rergarder un petit peu ensemble.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="et-avec-des-vraies-données-i" class="slide level2">
 <h2>Et avec des vraies données ? (I)</h2>
@@ -735,18 +838,32 @@ e^{i \pi} + 1 = 0
 <p>On a vu tout un tas d’éléments d’<code>UI</code>, mais on a pas vraiment interragi avec des données dignes de ce nom.</p>
 </blockquote>
 
-<img data-src="imgs/meme_polars.jpg" style="width:75.0%" class="r-stretch quarto-figure-center"><p><span class="math inline">\(\Rightarrow\)</span> <strong>Morale de l’histoire</strong> : Installe <code>polars</code></p>
+<img data-src="imgs/meme_polars.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><p><span class="math inline">\(\Rightarrow\)</span> <strong>Morale de l’histoire</strong> : Installe <code>polars</code></p>
+<aside class="notes">
+<p><em>Guillaume</em></p>
+<p>Quand on pense manipulation de données en python, on pense <code>pandas</code>, mais il est temps de passer à la vitesse supérieure et d’avoir un truc vraiment rapide.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="et-avec-des-vraies-données-ii" class="slide level2">
 <h2>Et avec des vraies données ? (II)</h2>
 <blockquote>
 <p>Exemple avec des données de cas de <em>COVID-19</em> aux <strong>Etats-Unis</strong> entre 2020 et 2022 : + 2.5 millions de lignes !</p>
 </blockquote>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
-<span id="cb10-2"><a href="#cb10-2"></a></span>
-<span id="cb10-3"><a href="#cb10-3"></a>df_covid <span class="op">=</span> pl.read_csv(</span>
-<span id="cb10-4"><a href="#cb10-4"></a>    <span class="st">"https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv"</span></span>
-<span id="cb10-5"><a href="#cb10-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb10-2"><a href=""></a></span>
+<span id="cb10-3"><a href=""></a>df_covid <span class="op">=</span> pl.read_csv(</span>
+<span id="cb10-4"><a href=""></a>    <span class="st">"https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv"</span></span>
+<span id="cb10-5"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -763,17 +880,44 @@ e^{i \pi} + 1 = 0
 </div>
 </div>
 </div>
+<aside class="notes">
+<p><em>Guillaume</em></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="on-est-pas-rendus" class="slide level2">
 <h2>On est pas rendus…</h2>
 
-<img data-src="imgs/meme_skeleton.jpeg" style="width:35.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="imgs/meme_skeleton.jpeg" class="quarto-figure quarto-figure-center r-stretch" style="width:35.0%"><aside class="notes">
+<p><em>Guillaume</em></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="solution-i" class="slide level2">
 <h2>Solution (I)</h2>
 
-<img data-src="imgs/cache_decorator.png" style="width:75.0%" class="r-stretch quarto-figure-center"><p><strong>Deux décorateurs très utiles</strong> :</p>
+<img data-src="imgs/cache_decorator.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><p><strong>Deux décorateurs très utiles</strong> :</p>
 <p><code>@st.cache_data</code> et <code>@st.cache_resource</code></p>
 <aside class="notes">
+<p><em>Corentin</em></p>
 <p>Pour le premier décorateur, imaginez que vous ayez un dataframe de 2,5 millions lignes, ça va devenir assez encombrant que chaque interaction relance entièrement l’appli, et donc l’import des données peut se faire en une fois, et ensuite les données vont rester dans le cache du navigateur.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -789,14 +933,14 @@ e^{i \pi} + 1 = 0
 </section>
 <section id="solution-ii" class="slide level2">
 <h2>Solution (II)</h2>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="at">@st.cache_data</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="kw">def</span> import_covid_usa(link: <span class="bu">str</span>) <span class="op">-&gt;</span> pl.DataFrame:</span>
-<span id="cb11-3"><a href="#cb11-3"></a>    <span class="co">"""Fonction d'import des données optimisée."""</span></span>
-<span id="cb11-4"><a href="#cb11-4"></a>    <span class="cf">return</span> pl.read_csv(link)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a><span class="at">@st.cache_data</span></span>
+<span id="cb11-2"><a href=""></a><span class="kw">def</span> import_covid_usa(link: <span class="bu">str</span>) <span class="op">-&gt;</span> pl.DataFrame:</span>
+<span id="cb11-3"><a href=""></a>    <span class="co">"""Fonction d'import des données optimisée."""</span></span>
+<span id="cb11-4"><a href=""></a>    <span class="cf">return</span> pl.read_csv(link)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>💡 Et maintenant, observons la différence !</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>df_covid <span class="op">=</span> import_covid_usa(</span>
-<span id="cb12-2"><a href="#cb12-2"></a>    <span class="st">"https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv"</span></span>
-<span id="cb12-3"><a href="#cb12-3"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a>df_covid <span class="op">=</span> import_covid_usa(</span>
+<span id="cb12-2"><a href=""></a>    <span class="st">"https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv"</span></span>
+<span id="cb12-3"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -813,23 +957,37 @@ e^{i \pi} + 1 = 0
 </div>
 </div>
 </div>
+<aside class="notes">
+<p><em>Corentin</em></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="affichage-dun-tableau" class="slide level2">
 <h2>Affichage d’un tableau</h2>
 <blockquote>
 <p>On a maintenant envie d’afficher nos données sous forme de tableau.</p>
 </blockquote>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="cf">with</span> tab_2:</span>
-<span id="cb13-2"><a href="#cb13-2"></a>    st.dataframe(</span>
-<span id="cb13-3"><a href="#cb13-3"></a>        df_covid,</span>
-<span id="cb13-4"><a href="#cb13-4"></a>        hide_index<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb13-5"><a href="#cb13-5"></a>        use_container_width<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb13-6"><a href="#cb13-6"></a>        column_config<span class="op">=</span>{</span>
-<span id="cb13-7"><a href="#cb13-7"></a>            <span class="st">"date"</span>: st.column_config.DateColumn(<span class="st">"📅 Date"</span>, <span class="bu">format</span><span class="op">=</span><span class="st">"DD/MM/YYYY"</span>)</span>
-<span id="cb13-8"><a href="#cb13-8"></a>        },</span>
-<span id="cb13-9"><a href="#cb13-9"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a><span class="cf">with</span> tab_2:</span>
+<span id="cb13-2"><a href=""></a>    st.dataframe(</span>
+<span id="cb13-3"><a href=""></a>        df_covid,</span>
+<span id="cb13-4"><a href=""></a>        hide_index<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb13-5"><a href=""></a>        use_container_width<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb13-6"><a href=""></a>        column_config<span class="op">=</span>{</span>
+<span id="cb13-7"><a href=""></a>            <span class="st">"date"</span>: st.column_config.DateColumn(<span class="st">"📅 Date"</span>, <span class="bu">format</span><span class="op">=</span><span class="st">"DD/MM/YYYY"</span>)</span>
+<span id="cb13-8"><a href=""></a>        },</span>
+<span id="cb13-9"><a href=""></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><span class="math inline">\(\Rightarrow\)</span> Grande flexibilité dans l’affichage.</p>
 <aside class="notes">
+<p><em>Hassan</em></p>
 <p>L’option hide_index permet de cacher la colonne d’indice qui est associée au dataframe.</p>
 <p>La seconde option permet de forcer le tableau à prendre la taille complète du conteneur. La dernière option est probablement la plus intéressante parce qu’elle permet de passer un schéma de configuration de colonnes pour les personnaliser.</p>
 <style type="text/css">
@@ -849,16 +1007,16 @@ e^{i \pi} + 1 = 0
 <blockquote>
 <p>On va chercher à visualiser le nombre de morts par état à une certaine date <em>(un peu macabre 😷)</em>.</p>
 </blockquote>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="cf">with</span> tab_3:</span>
-<span id="cb14-2"><a href="#cb14-2"></a>    st.subheader(<span class="st">"Nombre de personnes mortes de COVID-19 *(Noël 2020)*"</span>)</span>
-<span id="cb14-3"><a href="#cb14-3"></a></span>
-<span id="cb14-4"><a href="#cb14-4"></a>    deaths_by_state_christmas <span class="op">=</span> (</span>
-<span id="cb14-5"><a href="#cb14-5"></a>        df_covid.<span class="bu">filter</span>(pl.col(<span class="st">"date"</span>) <span class="op">==</span> <span class="st">"2020-12-25"</span>)</span>
-<span id="cb14-6"><a href="#cb14-6"></a>        .group_by(<span class="st">"state"</span>)</span>
-<span id="cb14-7"><a href="#cb14-7"></a>        .agg(pl.col(<span class="st">"deaths"</span>).<span class="bu">sum</span>())</span>
-<span id="cb14-8"><a href="#cb14-8"></a>    )</span>
-<span id="cb14-9"><a href="#cb14-9"></a></span>
-<span id="cb14-10"><a href="#cb14-10"></a>    st.bar_chart(deaths_by_state_christmas, x<span class="op">=</span><span class="st">"state"</span>, y<span class="op">=</span><span class="st">"deaths"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a><span class="cf">with</span> tab_3:</span>
+<span id="cb14-2"><a href=""></a>    st.subheader(<span class="st">"Nombre de personnes mortes de COVID-19 *(Noël 2020)*"</span>)</span>
+<span id="cb14-3"><a href=""></a></span>
+<span id="cb14-4"><a href=""></a>    deaths_by_state_christmas <span class="op">=</span> (</span>
+<span id="cb14-5"><a href=""></a>        df_covid.<span class="bu">filter</span>(pl.col(<span class="st">"date"</span>) <span class="op">==</span> <span class="st">"2020-12-25"</span>)</span>
+<span id="cb14-6"><a href=""></a>        .group_by(<span class="st">"state"</span>)</span>
+<span id="cb14-7"><a href=""></a>        .agg(pl.col(<span class="st">"deaths"</span>).<span class="bu">sum</span>())</span>
+<span id="cb14-8"><a href=""></a>    )</span>
+<span id="cb14-9"><a href=""></a></span>
+<span id="cb14-10"><a href=""></a>    st.bar_chart(deaths_by_state_christmas, x<span class="op">=</span><span class="st">"state"</span>, y<span class="op">=</span><span class="st">"deaths"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>De nombreuses options de visualisation à la volée :</strong></p>
 <ul>
 <li class="fragment"><code>st.line_chart()</code></li>
@@ -867,6 +1025,7 @@ e^{i \pi} + 1 = 0
 <li class="fragment"><em>etc.</em></li>
 </ul>
 <aside class="notes">
+<p><em>Aybuké</em></p>
 <p>Pour plus de contrôle sur les visualisations on peut utiliser plotly, altair ou matplotlib avec d’autres commandes.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -899,6 +1058,7 @@ e^{i \pi} + 1 = 0
 </div>
 </div>
 <aside class="notes">
+<p><em>Corentin</em></p>
 <p>Et comme évidemment les devs de chez Streamlit ils ont pas réinventé la roue ils ont utilisé un système de sérialisation et désérialisation de données qui a été crée à la base par <strong>Google</strong>.</p>
 <p>Les messages Delta protobuf dans Streamlit en gros c’est donc des messages qui décrivent les modifications à apporter à l’interface utilisateur de l’application. Ces messages contiennent des instructions sur la façon de mettre à jour ou de modifier les éléments.</p>
 <p>Par exemple les messages d’alerte, la sidebar, ou même les tabs, ce sont tous des composants DeltaGenerator qui sont des conteneurs, on peut le voir si on s’amuse à utiliser F12 pour inspecter l’appli.</p>
@@ -916,7 +1076,21 @@ e^{i \pi} + 1 = 0
 </section>
 <section id="pour-aller-loin" class="slide level2">
 <h2>Pour aller + loin</h2>
+<p><strong>Secrets management</strong></p>
 <p><code>st.secrets</code></p>
+<aside class="notes">
+<p><em>Hassan</em></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="exemples-dappli-complètes" class="slide level2">
 <h2>Exemples d’appli complètes</h2>
@@ -925,17 +1099,50 @@ e^{i \pi} + 1 = 0
 </ul>
 <hr>
 <p><strong>API Reference</strong> : <a href="https://docs.streamlit.io/library/api-reference" class="uri">https://docs.streamlit.io/library/api-reference</a></p>
+<aside class="notes">
+<p><em>Guillaume</em></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="fin" class="slide level2">
 <h2>FIN</h2>
+
+<img data-src="imgs/meme_end.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><aside class="notes">
+<p><em>Hassan</em></p>
+<p>Streamlit devient de plus en plus omniprésent dans le domaine de la data et vous aurez peut-être à l’utiliser, et en tout cas nous on vous le conseille fortement, et surtout on espère que ça vous a plu et que ça vous sera utile.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="un-dernier-meme-pour-la-route" class="slide level2">
+<h2>(Un dernier meme pour la route)</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="imgs/meme_end.jpg" style="width:75.0%"></p>
+<p><img data-src="imgs/meme_cc.jpg" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
 </figure>
 </div>
+<div class="quarto-auto-generated-content">
 <p><img src="https://corentinducloux.fr/dossier_img/mecen_transparent.png" class="slide-logo"></p>
 <div class="footer footer-default">
 <p>Présentation de <a href="https://streamlit.io/"><em>Streamlit</em></a></p>
+</div>
 </div>
 </section>
     </div>
@@ -964,7 +1171,6 @@ e^{i \pi} + 1 = 0
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -1225,10 +1431,29 @@ e^{i \pi} + 1 = 0
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+              // default icon
+              link.classList.add("external");
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -1238,8 +1463,17 @@ e^{i \pi} + 1 = 0
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -1253,7 +1487,11 @@ e^{i \pi} + 1 = 0
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {
@@ -1293,20 +1531,6 @@ e^{i \pi} + 1 = 0
           });
         }
       }
-        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-          var filterRegex = new RegExp('/' + window.location.host + '/');
-        var isInternal = (href) => {
-            return filterRegex.test(href) || localhostRegex.test(href);
-        }
-        // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
-        for (var i=0; i<links.length; i++) {
-          const link = links[i];
-          if (!isInternal(link.href)) {
-              // default icon
-              link.classList.add("external");
-          }
-        }
     });
     </script>
     
