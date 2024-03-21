@@ -72,8 +72,10 @@ Callbacks ?
 
 ::::
 
-> Et pourquoi pas juste un script <i class="fa-brands fa-python"></i> ?
 
+:::{.fragment}
+> Et pourquoi pas juste un script <i class="fa-brands fa-python"></i> ?
+:::
 
 :::{.notes}
 *Corentin*
@@ -505,6 +507,8 @@ with tab_3:
 :::{.notes}
 *Aybuké*
 
+Dans notre code ici, on retrouve un peu de polars mais rien de compliqué vous voyez que ça ressemble à la syntaxe de SQL.
+
 Pour plus de contrôle sur les visualisations on peut utiliser plotly, altair ou matplotlib avec d'autres commandes.
 :::
 
@@ -544,6 +548,7 @@ Par exemple les messages d'alerte, la sidebar, ou même les tabs, ce sont tous d
 ## Exemples d'appli complètes
 
 - 🍷 Projet de Machine Learning du `Coc's` & du `Guig's` : [Wine Scraping](https://wine-scraping.streamlit.app/)
+- 🚗 Projet de Machine Learning de `Buk` & du `H` : [Esti*my*Car](https://estimycar.streamlit.app/)
 
 <hr>
 

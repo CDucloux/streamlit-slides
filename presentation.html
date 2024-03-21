@@ -8,7 +8,7 @@
 <link href="presentation_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="presentation_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="presentation_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.551">
+  <meta name="generator" content="quarto-1.4.549">
 
   <meta name="author" content="Buk, Guig's, le H et le Coc's">
   <title>💻 Streamlit</title>
@@ -403,7 +403,7 @@
 </div>
 </div>
 
-  <p class="date">20/03/2024</p>
+  <p class="date">21/03/2024</p>
 </section>
 <section id="présentation" class="slide level2">
 <h2>Présentation</h2>
@@ -453,9 +453,11 @@
 <p>Callbacks ?</p>
 </div>
 </div>
+<div class="fragment">
 <blockquote>
 <p>Et pourquoi pas juste un script <i class="fa-brands fa-python"></i> ?</p>
 </blockquote>
+</div>
 <aside class="notes">
 <p><em>Corentin</em></p>
 <p><strong>A dire après l’objectif : </strong></p>
@@ -1026,6 +1028,7 @@ e^{i \pi} + 1 = 0
 </ul>
 <aside class="notes">
 <p><em>Aybuké</em></p>
+<p>Dans notre code ici, on retrouve un peu de polars mais rien de compliqué vous voyez que ça ressemble à la syntaxe de SQL.</p>
 <p>Pour plus de contrôle sur les visualisations on peut utiliser plotly, altair ou matplotlib avec d’autres commandes.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -1096,6 +1099,7 @@ e^{i \pi} + 1 = 0
 <h2>Exemples d’appli complètes</h2>
 <ul>
 <li class="fragment">🍷 Projet de Machine Learning du <code>Coc's</code> &amp; du <code>Guig's</code> : <a href="https://wine-scraping.streamlit.app/">Wine Scraping</a></li>
+<li class="fragment">🚗 Projet de Machine Learning de <code>Buk</code> &amp; du <code>H</code> : <a href="https://estimycar.streamlit.app/">Esti<em>my</em>Car</a></li>
 </ul>
 <hr>
 <p><strong>API Reference</strong> : <a href="https://docs.streamlit.io/library/api-reference" class="uri">https://docs.streamlit.io/library/api-reference</a></p>
@@ -1442,11 +1446,6 @@ e^{i \pi} + 1 = 0
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {
-            // undo the damage that might have been done by quarto-nav.js in the case of
-            // links that we want to consider external
-            if (link.dataset.originalHref !== undefined) {
-              link.href = link.dataset.originalHref;
-            }
               // default icon
               link.classList.add("external");
           }
@@ -1487,11 +1486,7 @@ e^{i \pi} + 1 = 0
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          if (note) {
-            return note.innerHTML;
-          } else {
-            return "";
-          }
+          return note.innerHTML;
         });
       }
       const findCites = (el) => {
