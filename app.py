@@ -1,6 +1,38 @@
 import streamlit as st
+import hmac
 
 st.set_page_config(page_icon="🐍", page_title="PyApp")
+
+def check_password():
+    """Returns `True` if the user had the correct password."""
+
+    def password_entered():
+        """Checks whether a password entered by the user is correct."""
+        if hmac.compare_digest(st.session_state["password"], st.secrets["password"]):
+            st.session_state["password_correct"] = True
+            del st.session_state["password"]  # Don't store the password.
+        else:
+            st.session_state["password_correct"] = False
+
+    # Return True if the password is validated.
+    if st.session_state.get("password_correct", False):
+        return True
+
+    # Show input for password.
+    st.text_input(
+        "Mot de passe",
+        type="password",
+        on_change=password_entered,
+        key="password",
+        placeholder="Veuillez insérer le mot de passe pour accéder à l'application.",
+    )
+    if "password_correct" in st.session_state:
+        st.error("😕 Mot de passe incorrect")
+    return False
+
+
+if not check_password():
+    st.stop()
 
 st.title("😎 Ma première app super stylée")
 
@@ -81,3 +113,37 @@ with st.sidebar:
         st.error(f"Ta note en Concurrence et Innovation : {note_pf}", icon="👀")
         st.warning("Ceci est un avertissement générique", icon="⚠")
         st.success("Message de réussite.", icon="✅")
+
+import polars as pl
+
+@st.cache_data
+def import_covid_usa(link: str) -> pl.DataFrame:
+    """Fonction d'import des données optimisée."""
+    return pl.read_csv(link)
+
+df_covid = import_covid_usa(
+    "https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv"
+)
+
+with tab_2:
+    st.dataframe(
+        df_covid,
+        hide_index=True,
+        use_container_width=True,
+        column_config={
+            "date": st.column_config.DateColumn("📅 Date", format="DD/MM/YYYY"),
+            "deaths": st.column_config.NumberColumn("☠️ MORTS")
+        },
+    )
+
+with tab_3:
+    st.subheader("Nombre de personnes mortes de COVID-19 *(Noël 2020)*")
+
+    deaths_by_state_christmas = (
+        df_covid.filter(pl.col("date") == "2020-12-25")
+        .group_by("state")
+        .agg(pl.col("deaths").sum())
+        .sort(pl.col("deaths"), descending = True)
+    )
+
+    st.bar_chart(deaths_by_state_christmas, x="state", y="deaths")
